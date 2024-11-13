@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dashbord.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Dashboard</title>
+</head>
+
+<body onload="loadData()">
+    <header>
+        <h1>Panda Cab System</h1>
+    </header>
+    <div class=" welcome">
+        <div class="logout">
+          <button class="btn btn-outline-warning btn-sm" onclick="logout()">Logout</button>
+        </div>
+        <div  class="username">
+          <p id="email"></p>
+        </div>
+        <div class="profile-pic">
+            <img src="images/avatar.png" alt="prop-img">
+        </div>
+        
+    </div>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <header>My Menu</header>
+      <a href="dashbord.html" class="active">
+        <i class="fas fa-qrcode"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="quotations.html">
+        <i class="fas fa-link"></i>
+        <span>Quotations</span>
+      </a>
+      <a href="vehicles.html">
+        <i class="fas fa-truck"></i>
+        <span>Vehicles</span>
+      </a>
+      
+    </div>
+
+    <div class="body-content">
+        <div class="row container inner-body">
+            <div class="col-12 col-sm-12 col-md-12  inner-content">
+                <p class="text-left fw-bold mx-3 mt-3 ">Customer Details</p>
+                <hr>
+                <div class="row customer-area">
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <label class="form-label" for="customerTp">Customer Tp</label>
+                        <input type="text" id="customerTp" class="form-control form-control-sm" maxlength="10" onchange="searchTp()"/>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <label class="form-label" for="cusName">Name</label>
+                        <input type="text" id="cusName" class="form-control form-control-sm"/>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <label class="form-label" for="address">Address</label>
+                        <textarea id="address" class="col-12" name="address" rows="2" maxlength="400"></textarea>
+                    </div>
+                </div>
+                <p class="text-left fw-bold mx-3 mt-3">Quotation</p>
+                <hr>
+                <div class="row ">
+                  <div class="col-12 col-sm-6 col-md-2">
+                    <label class="form-label" for="QtoNo">Quotation No:</label>
+                    <input type="text" id="QtoNo" class="form-control form-control-sm" disabled/>
+                  </div>
+                    <div class="col-12 col-sm-6 col-md-2 form-group">
+                        <label class="form-label" for="vehicle">Vehicle</label>
+                        <select name="vehicle" id="vehicle" class="form-control col-12  select form-control-sm" required>
+                            <option value="" disabled selected>Select Vehicle</option>
+                            <option value="Bus">Bus</option>
+                            <option value="Bus A/C">Bus A/C</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 mb-2 form-group model-select" id="modelSelection">
+                        <label class="form-label" for="model">Model</label>
+                        <select id="model" class="form-control col-12  select form-control-sm" required>
+                          <option value="" disabled selected>Select Model</option>
+                        </select>
+                      </div>
+                      <div class="col-12 col-sm-6 col-md-2 text-center">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="condition" id="yes"
+                            value="A/C" checked />
+                          <label class="form-check-label" for="yes">A/C</label>
+                        </div>
+                        <br>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="condition" id="no"
+                            value="Non A/C" />
+                          <label class="form-check-label" for="no">Non A/C</label>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-2">
+                    </div>
+                    
+                </div>
+                <div class="row direction mb-2">
+                  <div class="col-12 col-sm-6 mb-1 col-md-2 ">
+                    <label for="start">Start Location:</label>
+                    <input type="text" id="start" name="start" class="form-control form-control-sm" required>
+                  </div>
+                  <div class="col-12 col-sm-6 col-md-2">
+                    <label for="end">End Location:</label>
+                    <input type="text" id="end" name="end" class="form-control form-control-sm" required>
+                  </div>
+                  <div class="col-12 col-sm-4 col-md-2">
+                    <label for=""></label><br>
+                    <button id="getDirectionsBtn" class="btn btn-success btn-sm">Get Directions</button>
+                  </div>
+                  <div class="col-12 col-sm-4 col-md-2">
+                    <label for="totDirection">Total Direction (Km)</label>
+                    <input type="number" id="totDirection" name="totDirection" class=" form-control form-control-sm "  required>
+                  </div> 
+                  <div class="col-12 col-sm-4 col-md-1">
+                    <br>
+                    <label  class="form-label" for="both">Both</label>
+                    <input type="checkbox" id="both" name="both" value="both" onchange="toggleCheckbox(this)" >
+                  </div> 
+                  <div class="col-12 col-sm-4 col-md-2 form-group">
+                    <label for="perKm" class="col-6">Per Km(Rs)</label>
+                    <select id="perKm" class="form-control col-12   select form-control-sm" required>
+                      <option value="" disabled selected>Select Price</option>
+                    </select>
+                    <!-- <input type="text" class="form-control form-control-sm " id="perKm" onchange="totalPrice()"> -->
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="row col-12 col-sm-6 col-md-6">
+                    <div class="col-12 col-sm-6 col-md-4 mb-2 form-group">
+                      <label for="night">Night Parking</label>
+                      <input type="text"  id="nightPrice" class=" form-control form-control-sm ">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-2 form-group">
+                      <label for="date">Days</label>
+                      <input type="text"  id="nightDay" class=" form-control form-control-sm ">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 mb-2 form-group">
+                      <label for=""></label><br>
+                    <!-- <button id="nightToPrice" onclick="calnight()" class="btn btn-success btn-sm">Night Parking</button> -->
+                    </div>
+
+
+
+
+                    <div class="col-12 col-sm-6 col-md-6 mb-2 form-group">
+                      <label for="date">Pickup Date:</label>
+                      <input type="date"  id="fromDate" class=" form-control form-control-sm " onchange="validateDateOnChange(this)">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 mb-2 form-group">
+                      <label for="date">To:</label>
+                      <input type="date" class=" form-control form-control-sm " id="toDate" onchange="validateDateOnChange(this)">
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 form-group">
+                      <label for="stime">Start Time:</label>
+                      <input type="time" class=" form-control form-control-sm " id="stime" >
+                    </div>
+                    <div class="col-12 col-sm-6 mb-3 col-md-6 form-group">
+                        <label for="etime">End Time:</label>
+                        <input type="time" class=" form-control form-control-sm " id="etime" >
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 mb-3 col-md-4 mt-4 dateTime">
+                    
+                    <div class="col-12 form-group totalpricing">
+                      <button id="getTotal" type="button" onclick="totalPrice()" class="col-12  btn btn-outline-dark btn-floating mx-1">
+                        Get Total
+                      </button>
+                      <h1 class="mt-4" id="totalprice"></h1>
+                    </div>
+                  </div>
+                  <div class="row col-12 col-sm-12 col-md-2 mt-4 ">
+                    <div class="col-sm-6 col-md-12">
+                      <button id="saveQto" type="button" onclick="createQuotation()" class="col-12  btn btn-outline-primary btn-floating mx-1">
+                        Save
+                      </button>
+                    </div>
+                    <div class="col-sm-6 col-md-12 mt-2 mb-2">
+                      <button id="printQto" type="button" style="display: none;" onclick="printQto()" class="col-12 btn btn-outline-danger btn-floating mx-1">
+                        Print
+                      </button>
+                    </div>
+                    <div class="col-sm-6 col-md-12 mb-2">
+                      <!-- <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+                      <div class="elfsight-app-319773fd-c679-45f1-932d-5781ceb7440b" data-elfsight-app-lazy></div> -->
+                      <!-- <button id="whatsapp" type="button" onclick="sendToWhatsapp()" class="col-12 btn btn-outline-success btn-floating mx-1">
+                        <i class="fab fa-whatsapp"></i>
+                        Whatsapp
+                      </button> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="condition-area">
+                  <textarea id="myTextarea">
+# 10% advance within one day and confirm the trip.
+# Extra Per Km Rs.450
+                  </textarea>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="script/firebaseConfig.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="script/dashbord.js"></script>
+    <!-- <script src="script/quotation_report.js"></script> -->
+    <script src="script/validation.js"></script>
+
+    <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/665cc0579a809f19fb380446/1hvd4umep';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+    
+    
+</body>
+
+</html>

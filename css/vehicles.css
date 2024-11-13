@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+header {
+    background-color: #4b0000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+.sidebar{
+    margin-top: -92px;
+    padding: 0;
+    position: fixed;
+    width: 240px;
+    left: -240px;
+    height: auto;
+    background: #1e1e1e;
+    transition: all .5s ease;
+}
+.sidebar header{
+  font-size: 28px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #1b1b1b;
+  user-select: none;
+  font-family: 'Montserrat', sans-serif;
+}
+.sidebar a{
+  display: block;
+  height: 65px;
+  width: 100%;
+  color: white;
+  line-height: 65px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-left: 5px solid transparent;
+  font-family: 'Open Sans', sans-serif;
+  transition: all .5s ease;
+}
+a.active,a:hover{
+  border-left: 5px solid #b93632;
+  color: #b93632;
+}
+.sidebar a i{
+  font-size: 23px;
+  margin-right: 16px;
+}
+.sidebar a span{
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  
+}
+#check{
+  display: none;
+}
+label #btn,label #cancel{
+    margin-top: -90px !important;
+  position: fixed;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #262626;
+  margin: 15px 30px;
+  font-size: 29px;
+  background: #262626;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  transition: all .5s ease;
+}
+label #cancel{
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ .sidebar{
+  left: 0;
+}
+#check:checked ~ label #btn{
+  margin-left: 245px;
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ label #cancel{
+  margin-left: 245px;
+  opacity: 1;
+  visibility: visible;
+}
+@media(max-width : 860px){
+  .sidebar{
+    height: auto;
+    margin: 0 0;
+  }
+  header,#btn,#cancel{
+    display: block;
+    /* margin-top: -22px !important; */
+  }
+  span{
+    position: absolute;
+    margin-left: 23px;
+  }
+  .sidebar a{
+    height: 60px;
+  }
+  .sidebar a i{
+    margin-left: -10px;
+    
+  }
+  a:hover {
+    width: 200px;
+    background: inherit;
+  }
+  .sidebar a:hover span{
+    opacity: 1;
+    visibility: visible;
+    
+  }
+}
+
+.welcome{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    height: auto;
+    padding: 8px;
+}
+
+.profile-pic{
+    justify-content: center;
+    /* border: 1px solid black; */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 8px;
+    background-color: white;
+
+}
+.profile-pic img{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.username{
+  display: flex;
+  align-items: center;
+  /* border: 1px solid black; */
+  min-width: 200px; 
+  width: auto;
+  height: 60px;
+
+}
+@media only screen and (max-width:425px) {
+  .username p{
+    width: 100%;
+    font-size: 11px;
+  }
+}
+.logout{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+/* ------------------------------------------- */
+.body-content{
+    display: flex;
+    justify-content: center;
+}
+
+.button-area{
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+.button-area button{
+    padding-left: 2.5rem !important; 
+    padding-right: 2.5rem;
+    margin: 10px !important;
+}
+.regVehi{
+    width: 700px;
+    height: auto;
+    padding: 15px !important;
+    background-color: rgb(0, 0, 0, 0.30);
+    
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.90);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.90);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.90);
+border-radius: 5px;
+    
+    
+}
+
+
+
+@media (min-width: 576px) {
+  input::placeholder {
+    color: transparent !important;
+  }
+}
+@media (max-width: 575.98px) {
+  .form-label {
+      display: none;
+  }
+  input{
+    margin: 5px 0 !important;
+  }
+}

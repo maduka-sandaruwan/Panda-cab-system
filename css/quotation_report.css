@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+}
+header {
+    margin-top: 0px;
+    background-color: #4b0000;
+    color: white;
+    padding: 10px 0;
+        /* min-height: 250px; */
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        
+        
+}
+.inv{
+    margin: 20px;
+}
+p{
+    margin: 0 !important;
+}
+.date-area td{
+    padding-left: 15px !important;
+}
+.amount_table input{
+    text-align: right;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+header img{
+    width: 140px; 
+    float: center;
+    margin-left: 10px;
+}
+.address{
+    margin-left: 10px !important;
+}
+.logo-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.total_amount{
+    /* border: 1px solid red; */
+    /* width: 400px; */
+    display: flex;
+    justify-content: flex-end !important;
+}
+#myTextarea {
+    color: red;
+}
+
+
+
+
+footer{
+    /* position: fixed;
+    bottom: 10px; */
+    /* right: 10px;
+    left: 10px; */
+    width: 98% !important;
+    background-color: #4b0000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+        /* min-height: 250px; */
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
